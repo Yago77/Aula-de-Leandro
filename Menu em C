@@ -1,0 +1,114 @@
+#include <stdio.h>
+#include <math.h>
+#include <locale.h>
+#include <stdlib.h>
+
+int main()
+
+
+{		
+	setlocale(LC_ALL,"Portuguese");
+	
+	int x,z,b,ano,n1,n2,n3,m,matricula;             //declarando variáveis...normal.
+	float a,pot,raiz,m1,m2,me;
+	
+	do{
+		printf("\nDigite um número de 0 a 9. 0 para fechar o programa!\n");
+		scanf("%d",&x);
+		printf("\nO número digitado foi: %d",x);
+		system("cls");
+		
+	if(x == 0){                              //se o número digitado for 0,o programa irá dizer a frase abaixo.Eventualmente fechar por conta do ultimo codigo.
+		printf("\nAdeus e obrigado!\n");
+	}
+	
+	else if(x > 10){                         //número digitado for maior do que 9...a frase abaixo aparece.
+		printf("\nOpção inexistente!\n");
+		}
+	
+	switch(x){
+		
+		case 1:
+			
+			printf("\nBem vindo ao menu do par ou impar!\n");
+			printf("\nDigite um número e irei dizer se é par ou impar!\n"); 
+			scanf("%d",&z);
+				
+			if(z % 2 == 0){   						  // se o resto da divisão por 2 for zero, o número é par!								       
+			printf("\nO número é par!\n");
+			
+			}else{
+				printf("\nO número é impar!\n");
+			}
+			break;
+			
+		case 2:
+			
+			printf("\nBem vindo ao menu da potência!\n");
+			printf("\nVamos para potência! Digite um numero float e um inteiro: ");
+			scanf("%f %d",&a ,&b);                                       
+			pot = pow(a,b);                                  //base e expoente...potência  Por alguma razão ta com bug.
+			break;
+			
+		case 3:
+			
+			printf("\nBem vindo ao menu da raiz!\n");
+			printf("\nAgora raiz quadrada! Digite um número float e um inteiro: ");
+			scanf("%f %d",&a,&b);
+			raiz = pow(a,1.0/b);                                                               //Isso é a mesma coisa que a raiz do A com base B 
+			printf("O resultado é: %e",raiz);
+			break;
+			
+		case 4:
+			
+			printf("\nBem vindo ao menu do ano bissexto!\n");
+			printf("\nDigite um ano numerico e irei informar se ele eh bissexto: \n");    
+			scanf("%d",&ano);        
+			     
+			if(ano % 4 ==0){                                //Se o resto da divisao do ano por 4 for 0.... o ano eh bissexto.
+				printf("O ano é bissexto!\n"); 
+			}else{
+				printf("O ano não é bissexto!\n");
+			}
+			break;
+			
+		case 5:
+			
+			printf("\nBem vindo ao menu das notas!\n");
+			printf("\nDigite 3 notas e direi se você esta aprovado! Digite de 0 a 100:\n");
+			scanf("%d %d %d",&n1,&n2,&n3);
+			m = ((n1 + n2) + (n3*2)) / 3;  					//Somando as notas de peso 1 primeiro,depois somando com a nota de peso 2 e depois dividindo por 3
+			                  								 
+			if(m >= 60){                                        
+				printf("Aprovado! A sua média foi: %d",m);
+			}else{
+				printf("Reprovado! A sua média foi: %d",m);
+			}
+			break;
+			
+		case 6:
+			
+			printf("\nBem vindo a outro menu de notas!\n");
+			printf("\nDigite duas notas e direi se sao validas. Tambem darei a media: \n");
+			scanf("%f %f",&m1,&m2);
+			me = (m1+m2)/2;                           
+			                           
+			if(m1 >=0.0 && m1 <= 10.0 && m2 >= 0.0 && m2 <= 10.0){      //se as notas forem menores que 0 e maiores que 10,elas sao invalidas
+				printf("As notas são válidas. A media eh: %2.f",me);
+			}else{
+				printf("As notas são inválidas.");
+			}
+			break;
+			
+		case 10:
+			
+			printf("\nBem vindo ao menu da matricula!\n");
+			printf("\nDigite o número de sua matricula,eu direi como ele é em hexadecimal:\n");
+			scanf("%d",&matricula);
+			printf("\nA sua matrícula em hexadecimal eh: %X",matricula);              //simples %X para transformar em hexadecimal.
+			break;     
+	}	
+	}while(x>=1 && x<=10);                   //tudo isso enquanto você digitar do numero 1 ao 9
+	
+	return 0;
+}
