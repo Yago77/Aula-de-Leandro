@@ -7,7 +7,7 @@ int main()
 
 
 {		
-	setlocale(LC_ALL,"Portuguese");
+	setlocale(LC_ALL,"");
 	
 	int x,z,b,ano,n1,n2,n3,m,matricula;             //declarando variáveis...normal.
 	float a,pot,raiz,m1,m2,me;
