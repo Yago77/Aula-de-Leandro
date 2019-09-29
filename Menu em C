@@ -7,13 +7,13 @@ int main()
 
 
 {		
-	setlocale(LC_ALL,"");
+	setlocale(LC_ALL,"Portuguese");
 	
-	int x,z,b,ano,n1,n2,n3,m,matricula;             //declarando variáveis...normal.
+	int x,z,b,ano,n1,n2,n3,m,matricula,fatorial = 1,count,i,ant=0,prox=1,resposta;             //declarando variáveis...normal.
 	float a,pot,raiz,m1,m2,me;
 	
 	do{
-		printf("\nDigite um número de 0 a 9. 0 para fechar o programa!\n");
+		printf("\nDigite um número de 0 a 10. 0 para fechar o programa!\n");
 		scanf("%d",&x);
 		printf("\nO número digitado foi: %d",x);
 		system("cls");
@@ -107,7 +107,64 @@ int main()
 			scanf("%d",&matricula);
 			printf("\nA sua matrícula em hexadecimal eh: %X",matricula);              //simples %X para transformar em hexadecimal.
 			break;     
-	}	
+			
+		case 7:
+			
+			printf("\nBem vindo ao menu do fatorial!\n");
+			printf("Digite um número e darei o seu fatorial: ");
+			scanf("%d",&x);
+	
+			while(x>0){
+			fatorial *= x--;
+			}
+
+			printf("o fatorial é %d",fatorial);
+			break;	
+			
+		case 8:
+			
+			do{ 
+			printf("\nBem vindo ao menu dos números primos!Digite um número diferente de zero para continuar\n");			 //loop para o usuário ficar digitando sempre um número,a menos que ele seja zero.                                                                       
+ 			scanf("%d",&z);
+			printf("Digite um número e direi se ele é primo: ");
+ 			scanf("%d",&x);
+ 		
+ 			for(i = 2; i <= x / 2; i++){													//Iremos fazer a divisão de todos os números até o número digitado,a partir de 2.Depois dividir pela metade e acrescentar 1 em "i"
+				if(x % i == 0){                                    							// Se o resto da divisão do número digitado por "i" for zero,acrescenta 1 no contador.
+     	  			count++;
+      				break;
+    			}
+ 			}
+ 			if(x == 1){																		//1 não é primo,portando essa foi a forma que eu achei de avisar que ele não é primo.
+	 			printf("1 não é um número primo.\n");
+			}
+			else if (count == 0){                                           				//Se depois das divisões o contador se manter em zero,significa que o número é primo
+  				printf("%d é um número primo.\n",x);
+  			}else{                                                     
+    		printf("%d não é um número primo.\n",x);
+			}
+			}while(z != 0);
+	
+ 			return 0;
+ 			break;
+ 			
+ 		case 9:
+ 			
+ 			printf("\nBem vindo ao menu do Fibonacci!\n");
+ 			printf("Digite quantos números da sequência de Fibonacci você quer que apareça: ");
+			scanf("%d",&x); 
+			printf("A sequência de Fibonacci é:\n");
+	
+			for(i=0; i<x; i++){                  						   //i vai contar até o número digitado pelo usuário,iniciando a contagem abaixo.                 
+			resposta = ant + prox;               						  //a variável "resposta" é a variável "ant",que é 0 + a variável "prox",que é 1
+			ant = prox;                           						 // a variável "ant" recebe "prox",virando 1
+			prox = resposta;	                  						   // a variável "prox" recebe a variável "resposta",também virando 1, repetindo o ciclo até o número digitado.
+			printf(" %d",ant);
+			}
+			
+ 		}
+ 		
+ 		
 	}while(x>=1 && x<=10);                   //tudo isso enquanto você digitar do numero 1 ao 9
 	
 	return 0;
